@@ -10,12 +10,12 @@ makeCacheMatrix <- function(x = matrix()) {    #lets first define the function a
         m <- NULL    #initialize m as NULL
         set <- function(y) {    #allows the user to redefine a new matrix into makeCacheMatrix; 
                                 #eg.    xMat <- matrix(rnorm(16), ncol=4, nrow=4)   #create xMat a 4 by 4 matrix
-                                #       xMat_sp <- makeCacheMatrix(xMat)            #lets the special list created by makeCacheMatrix be called "xMat_sp"
-                                #       xMat <- matrix(rnorm(25), ncol-5, nrow=5)   #update a new xMat to a 5 by 5 matrix
+                                #       xMat_sp <- makeCacheMatrix(xMat)            #let the special list created by makeCacheMatrix be called "xMat_sp"
+                                #       xMat <- matrix(rnorm(25), ncol=5, nrow=5)   #update a new xMat to a 5 by 5 matrix
                                 #       xMat_sp$set(xMat)                           #update the special list "xMat_sp" with the new 5 by 5 matrix
                
-                x <<- y         #updates the matrix stored with new matrix
-                m <<- NULL      #set m as NULL (to reinitialise the cachesolve process)
+                x <<- y         #updates the matrix stored with new matrix and store this new matrix as a global variable "x"
+                m <<- NULL      #set "m" as NULL and define the gloval variable "m" as NULL(to reinitialise the cachesolve process)
         }
         get <- function() x     #retrieve and store matrix "x" into "get"
         setsolve <- function(solve) m <<- solve  #stores the value "solve" in a global variable "m"
